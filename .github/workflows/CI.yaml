@@ -15,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: apt install libwebkit2gtk-4.1-dev libsoup3.0-dev
     - name: Build
       run: cargo build --verbose
     - name: Run tests
