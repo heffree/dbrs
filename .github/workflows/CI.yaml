@@ -11,7 +11,6 @@ env:
   RUSTFLAGS: "-Dwarnings"
   RUST_BACKTRACE: 1
 
-# test
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
