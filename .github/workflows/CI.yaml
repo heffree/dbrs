@@ -34,7 +34,7 @@ jobs:
     if: github.event.pull_request.draft == false
     name: Tests
     runs-on: ubuntu-latest
-    depends-on: [build]
+    needs: [build]
     steps:
       - uses: actions/checkout@v5
       - uses: awalsh128/cache-apt-pkgs-action@latest
@@ -53,7 +53,7 @@ jobs:
     if: github.event.pull_request.draft == false
     name: Clippy
     runs-on: ubuntu-latest
-    depends-on: [build]
+    needs: [build]
     steps:
       - uses: actions/checkout@v5
       - uses: awalsh128/cache-apt-pkgs-action@latest
