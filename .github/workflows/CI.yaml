@@ -8,6 +8,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+  RUSTFLAGS: "-Dwarnings"
   RUST_BACKTRACE: 1
 
 jobs:
@@ -69,4 +70,4 @@ jobs:
         with:
           cache-all-crates: "true"
           shared-key: "shared"
-      - run: cargo clippy --workspace --examples --tests --all-features --all-targets -- -D warnings
+      - run: cargo clippy --all-targets --all-features
