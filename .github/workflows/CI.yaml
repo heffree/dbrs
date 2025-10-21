@@ -11,9 +11,9 @@ env:
   RUST_BACKTRACE: 1
 
 jobs:
-  test:
+  build:
     if: github.event.pull_request.draft == false
-    name: Tests
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -21,7 +21,27 @@ jobs:
         with:
           packages: libwebkit2gtk-4.1-dev libgtk-3-dev libasound2-dev libudev-dev libayatana-appindicator3-dev libxdo-dev libglib2.0-dev
           version: 1.0
-      - uses: dtolnay/rust-toolchain@1.88.0
+      - uses: dtolnay/rust-toolchain@1.90.0
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+        with:
+          cache-all-crates: "true"
+      - run: cargo build
+
+
+  test:
+    if: github.event.pull_request.draft == false
+    name: Tests
+    runs-on: ubuntu-latest
+    depends-on: [build]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: libwebkit2gtk-4.1-dev libgtk-3-dev libasound2-dev libudev-dev libayatana-appindicator3-dev libxdo-dev libglib2.0-dev
+          version: 1.0
+      - uses: dtolnay/rust-toolchain@1.90.0
         with:
           components: rustfmt, clippy
       - uses: Swatinem/rust-cache@v2
@@ -33,6 +53,7 @@ jobs:
     if: github.event.pull_request.draft == false
     name: Clippy
     runs-on: ubuntu-latest
+    depends-on: [build]
     steps:
       - uses: actions/checkout@v5
       - uses: awalsh128/cache-apt-pkgs-action@latest
