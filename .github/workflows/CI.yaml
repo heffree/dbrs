@@ -27,6 +27,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
         with:
           cache-all-crates: "true"
+          shared-key: "shared"
       - run: cargo build
 
 
@@ -47,6 +48,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
         with:
           cache-all-crates: "true"
+          shared-key: "shared"
       - run: cargo test
 
   clippy:
@@ -66,4 +68,5 @@ jobs:
       - uses: Swatinem/rust-cache@v2
         with:
           cache-all-crates: "true"
+          shared-key: "shared"
       - run: cargo clippy --workspace --examples --tests --all-features --all-targets -- -D warnings
