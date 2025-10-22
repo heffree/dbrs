@@ -28,10 +28,10 @@ fn App() -> Element {
 #[component]
 pub fn SqlInput() -> Element {
     let mut sql = use_signal(|| "SELECT * FROM test;".to_string());
-    let mut connection_url = use_signal(|| "".to_string());
+    let mut connection_url = use_signal(String::new);
     let mut connect_txt = use_signal(|| "Connect".to_string());
     let mut button_text = use_signal(|| "Execute".to_string());
-    let mut result = use_signal(|| "".to_string());
+    let mut result = use_signal(String::new);
 
     let connect_to_db = move |_| async move {
         let db_conn = consume_context::<DbConnection>().0;
