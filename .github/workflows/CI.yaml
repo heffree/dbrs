@@ -56,6 +56,7 @@ jobs:
           shared-key: "shared"
       - run: cargo test
 
+# Doesn't seem to benefit from "check" cache, so run them in parallel
   clippy:
     if: github.event.pull_request.draft == false
     name: Clippy
@@ -73,4 +74,4 @@ jobs:
         with:
           cache-all-crates: "true"
           shared-key: "shared"
-      - run: cargo clippy # -- -W clippy::pedantic
+      - run: cargo clippy -- -W clippy::pedantic
