@@ -60,7 +60,6 @@ jobs:
     if: github.event.pull_request.draft == false
     name: Clippy
     runs-on: ubuntu-latest
-    needs: [check]
     steps:
       - uses: actions/checkout@v5
       - uses: awalsh128/cache-apt-pkgs-action@latest
@@ -74,4 +73,4 @@ jobs:
         with:
           cache-all-crates: "true"
           shared-key: "shared"
-      - run: cargo clippy
+      - run: cargo clippy -- -W clippy::pedantic
