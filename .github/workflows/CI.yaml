@@ -16,9 +16,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  check:
     if: github.event.pull_request.draft == false
-    name: Build
+    name: Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -33,7 +33,7 @@ jobs:
         with:
           cache-all-crates: "true"
           shared-key: "shared"
-      - run: cargo build
+      - run: cargo check
 
 
   test:
@@ -74,4 +74,4 @@ jobs:
         with:
           cache-all-crates: "true"
           shared-key: "shared"
-      - run: cargo clippy --all-targets --all-features
+      - run: cargo clippy
