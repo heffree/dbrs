@@ -1,4 +1,4 @@
-# DB Client Proto
+# DB Rust Studio
 Working on creating a little DB Studio
 
 ### Serving App
