@@ -6,10 +6,8 @@ license = "MIT"
 edition = "2024"
 authors = ["Andrew Hessler <adhessler@gmail.com>"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
-dioxus = { version = "0.6.0", features = [] }
+dioxus = { version = "0.7.0-rc.3", features = [] }
 rusqlite = "0.37.0"
 smol = "2.0.2"
 

@@ -1,5 +1,11 @@
 [application]
 
+[bundle]
+identifier = "com.heffree"
+publisher = "Heffree"
+icon = ["assets/icon.png"]
+
+
 [web.app]
 
 # HTML title tag content
