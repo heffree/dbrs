@@ -20,17 +20,45 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+#root,
+body {
+  width: 100%;
+  height: 100%;
 }
 
 .container {
   margin: 0;
-  padding-top: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   row-gap: 20px;
+  background-color: #222888;
+  width: 100%;
+  height: 100%;
+}
+
+.panel {
+  height: 100r;
+  width: 100%;
+  color: white;
+}
+
+.handle {
+  background-color: gray;
+  width: 5px;
+  transition: background-color 0.2s linear;
+}
+
+.handle2 {
+  background-color: gray;
+  height: 5px;
+  transition: background-color 0.2s linear;
 }
 
 #connection-url {
@@ -41,9 +69,35 @@
   width: 100px;
 }
 
+#execute-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 100px;
+}
+
 #input {
-  height: 300px;
-  width: 800px;
+  height: 100%;
+  width: 100%;
+}
+
+#output {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+#connection-list {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  color: black;
+  border-width: 3px;
+  border-color: black;
 }
 
 a {
